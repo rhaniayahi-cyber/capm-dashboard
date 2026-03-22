@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Graphiques — CAPM Asset Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="simulation.html">Simulation</a>
+    <a href="resultats.html">Résultats</a>
+    <a href="graphiques.html">Graphiques</a>
+</nav>
+
+<header>
+    <h1>Graphiques du projet</h1>
+    <p>Visualisation du risque, du rendement et de la logique du modèle CAPM</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Pourquoi cette page est importante ?</h2>
+        <p>
+            Les graphiques jouent un rôle central dans notre projet, car ils permettent de transformer des calculs
+            financiers abstraits en représentations visuelles beaucoup plus intuitives. Grâce à eux, nous pouvons
+            observer la relation entre le risque et le rendement, vérifier si les résultats obtenus sont cohérents
+            avec le modèle CAPM, et interpréter plus facilement le comportement des entreprises étudiées.
+        </p>
+        <p>
+            Cette page présente donc les deux graphiques les plus importants du projet : la relation entre le bêta
+            et le rendement réel, puis la Security Market Line, qui représente la droite théorique du CAPM.
+        </p>
+    </div>
+
+    <div class="card chart-card">
+        <h2>Relation entre le bêta et le rendement réel</h2>
+        <p>
+            Ce premier graphique représente la relation entre le bêta d’une action et son rendement réel moyen.
+            Le bêta mesure la sensibilité d’une entreprise aux variations du marché : plus il est élevé, plus
+            l’action est considérée comme risquée au sens du CAPM. Le rendement réel correspond au rendement moyen
+            effectivement observé dans les données historiques.
+        </p>
+        <p>
+            Chaque point du graphique correspond à une entreprise. Plus le point est situé à droite, plus le bêta
+            est élevé. Plus il est situé vers le haut, plus le rendement observé est important. Ce graphique permet
+            donc de vérifier visuellement si les actions les plus risquées ont aussi tendance à offrir les rendements
+            les plus élevés.
+        </p>
+        <p>
+            Dans notre projet, on observe globalement une relation croissante entre le risque et le rendement.
+            Des entreprises comme Apple ou Microsoft se situent dans une zone où le bêta et le rendement sont plus élevés,
+            tandis que des entreprises plus défensives comme TotalEnergies ou LVMH apparaissent avec des niveaux de risque
+            et de rendement plus faibles. Cette observation est cohérente avec l’intuition fondamentale du CAPM :
+            un risque plus élevé doit être rémunéré par un rendement plus important.
+        </p>
+
+        <img src="relation_beta_rendement.png" alt="Relation entre le bêta et le rendement réel">
+
+        <div class="tip-box">
+            Ce graphique permet donc de vérifier empiriquement si la logique générale du CAPM est respectée
+            dans les données que nous avons étudiées.
+        </div>
+    </div>
+
+    <div class="card chart-card">
+        <h2>Security Market Line</h2>
+        <p>
+            La Security Market Line, ou droite du marché des titres, est la représentation graphique du modèle CAPM.
+            Elle relie le niveau de risque mesuré par le bêta au rendement théorique attendu. La droite elle-même
+            correspond aux rendements que le CAPM prédit pour chaque niveau de bêta.
+        </p>
+        <p>
+            Sur ce graphique, les points représentent à nouveau les entreprises étudiées, mais cette fois ils sont
+            comparés à la droite théorique du CAPM. Cette comparaison est essentielle, car elle permet d’évaluer
+            si le rendement réel d’une action est supérieur, égal ou inférieur au rendement attendu compte tenu
+            de son niveau de risque.
+        </p>
+        <p>
+            Lorsqu’une entreprise se situe au-dessus de la droite, cela signifie que son rendement réel est supérieur
+            au rendement théorique du CAPM. Elle peut alors être interprétée comme potentiellement sous-évaluée,
+            car elle offre un meilleur rendement que celui prévu pour son niveau de risque. À l’inverse, lorsqu’une
+            entreprise se situe en dessous de la droite, cela signifie que son rendement réel est inférieur au rendement
+            attendu, ce qui peut suggérer une surévaluation relative.
+        </p>
+        <p>
+            Ce graphique est particulièrement important dans notre projet, car il constitue le lien direct entre
+            la théorie financière et les données observées. Il permet de confronter le modèle CAPM aux résultats
+            obtenus à partir des actions réellement étudiées.
+        </p>
+
+        <img src="security_market_line.png" alt="Security Market Line">
+
+        <div class="success-box">
+            La Security Market Line est l’un des graphiques les plus importants de l’ensemble du projet,
+            car elle permet d’identifier visuellement les entreprises potentiellement sous-évaluées ou surévaluées.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Lecture économique des deux graphiques</h2>
+        <p>
+            Ensemble, ces deux visualisations permettent de mieux comprendre la logique du CAPM. Le premier graphique
+            montre que le rendement réel tend à augmenter avec le niveau de risque. Le second ajoute une dimension
+            plus fine : il permet de voir si le rendement réellement observé est cohérent avec ce que le modèle
+            prédit théoriquement.
+        </p>
+        <p>
+            En combinant ces deux lectures, on obtient une analyse plus complète. Une action peut avoir un rendement
+            élevé, mais cela ne signifie pas automatiquement qu’elle est attractive : tout dépend aussi du niveau
+            de risque qu’elle implique. C’est précisément pour cela que le CAPM reste un outil central en finance :
+            il permet de comparer rendement et risque dans un même cadre d’analyse.
+        </p>
+    </div>
+    <div class="card chart-card">
+    <h2>Distribution des fortunes finales</h2>
+    <p>
+        Ce graphique représente la distribution des fortunes finales obtenues après les simulations de Monte Carlo.
+        Il permet de visualiser non seulement la moyenne, mais aussi la dispersion des résultats selon la stratégie
+        d’investissement retenue.
+    </p>
+    <p>
+        Chaque histogramme montre la fréquence des fortunes finales possibles pour une stratégie donnée. Une distribution
+        très étalée traduit un niveau de risque plus important, car les résultats possibles sont très dispersés.
+        À l’inverse, une distribution plus resserrée traduit une performance plus stable.
+    </p>
+    <p>
+        Dans notre projet, ce graphique permet de comparer directement le comportement de la gestion passive,
+        de la gestion active et de la gestion mixte. Il complète donc l’analyse des probabilités et des temps
+        d’atteinte en donnant une vision plus complète du risque.
+    </p>
+
+    <img src="distribution_fortunes.png" alt="Distribution des fortunes finales">
+
+    <div class="tip-box">
+        Ce graphique est particulièrement utile pour montrer que deux stratégies peuvent avoir une moyenne proche,
+        tout en présentant des niveaux de risque très différents.
+    </div>
+</div>
+
+    <div class="card">
+        <h2>Limites à garder en tête</h2>
+        <div class="warning-box">
+            Les graphiques présentés ici reposent sur les données historiques étudiées dans le projet. Ils permettent
+            une interprétation financière cohérente, mais ils ne doivent pas être considérés comme des outils de prévision
+            certaine des rendements futurs.
+        </div>
+        <p>
+            Les marchés financiers évoluent dans un environnement complexe, influencé par de nombreux facteurs qui ne sont
+            pas entièrement capturés par le CAPM. Il est donc important d’utiliser ces graphiques comme des outils
+            d’analyse et d’apprentissage, et non comme des garanties de performance future.
+        </p>
+    </div>
+
+</div>
+
+<div class="footer">
+    Graphiques CAPM — Lecture visuelle de la relation entre risque et rendement
+</div>
+
+</body>
+</html>
