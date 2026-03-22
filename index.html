@@ -2,11 +2,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Accueil — CAPM Asset Management Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil — CAPM Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- NAVIGATION -->
 <nav>
     <a href="index.html">Accueil</a>
     <a href="simulation.html">Simulation</a>
@@ -14,69 +17,90 @@
     <a href="graphiques.html">Graphiques</a>
 </nav>
 
+<!-- HEADER -->
 <header>
     <h1>CAPM Asset Management Dashboard</h1>
-    <p>Risque, rendement, simulation de portefeuille et interprétation financière</p>
+    <p>
+        Risque, rendement, simulation de portefeuille et interprétation financière
+    </p>
 </header>
 
 <div class="container">
 
+    <!-- PROBLEMATIQUE -->
+    <div class="problem-box">
+        <h2>Problématique</h2>
+        <p>
+            Les rendements observés des actions correspondent-ils réellement à ceux prédits par le modèle CAPM ?
+            Ce projet vise à analyser la relation entre le risque et le rendement à partir de données financières réelles,
+            puis à comparer les résultats théoriques et observés.
+        </p>
+    </div>
+
+    <!-- PRESENTATION -->
     <div class="card">
         <h2>Présentation du projet</h2>
         <p>
             Ce projet a été réalisé dans le cadre d’un travail de programmation appliqué à la finance.
-            Son objectif est d’étudier la relation entre le risque et le rendement des actions à l’aide
-            du modèle CAPM, tout en proposant une interface visuelle simple et élégante permettant
-            de présenter les résultats de manière claire.
+            Son objectif est d’étudier la relation entre le risque et le rendement des actions à l’aide du modèle CAPM,
+            tout en proposant une interface visuelle claire et pédagogique.
         </p>
+
         <p>
             Nous avons utilisé Python pour charger les données financières, nettoyer les séries temporelles,
-            calculer les rendements journaliers, estimer les bêtas des entreprises, déterminer les rendements
-            théoriques prévus par le CAPM et comparer ces rendements aux résultats réellement observés.
-            L’ensemble de ce travail est ensuite résumé dans ce dashboard.
+            calculer les rendements journaliers, estimer les bêtas des entreprises et déterminer les rendements
+            théoriques du CAPM. Ces résultats sont ensuite comparés aux rendements réellement observés.
         </p>
     </div>
 
+    <!-- CONTENU DASHBOARD -->
     <div class="card">
-        <h2>Ce que contient le dashboard</h2>
+        <h2>Contenu du dashboard</h2>
         <p>
-            La page <span class="highlight">Simulation</span> permet à l’utilisateur de choisir un capital initial,
-            une stratégie d’investissement et plusieurs entreprises. La page <span class="highlight">Résultats</span>
-            présente les indicateurs les plus importants du projet, notamment la fortune finale estimée,
-            la probabilité de dépasser un objectif de gain et la comparaison entre plusieurs stratégies.
-            La page <span class="highlight">Graphiques</span> regroupe enfin les visualisations essentielles
-            du modèle CAPM.
+            Le dashboard est structuré en plusieurs pages complémentaires :
+        </p>
+
+        <p>
+            • <span class="highlight">Simulation</span> : permet de tester différentes stratégies d’investissement en fonction d’un capital initial. <br>
+            • <span class="highlight">Résultats</span> : présente les performances, les probabilités de gain et les comparaisons entre stratégies. <br>
+            • <span class="highlight">Graphiques</span> : visualise la relation entre le bêta, le rendement et la Security Market Line.
         </p>
     </div>
 
+    <!-- ENTREPRISES -->
     <div class="card">
         <h2>Entreprises étudiées</h2>
         <p>
-            Les entreprises retenues dans le projet sont Apple, Microsoft, Tesla, Airbus, LVMH,
-            TotalEnergies, Air Products, Alibaba, Meta Platforms et Philips. Nous avons volontairement
-            choisi des entreprises issues de secteurs différents afin de comparer plusieurs profils de risque
-            et de rendement. Le marché est représenté par SPY, utilisé comme approximation de l’indice S&amp;P 500.
+            Les entreprises analysées dans ce projet sont : Apple, Microsoft, Tesla, Airbus,
+            LVMH, TotalEnergies, Air Products, Alibaba, Meta Platforms et Pharmagest.
+        </p>
+
+        <p>
+            Le marché est représenté par l’indice SPY (S&amp;P 500), utilisé comme référence
+            pour mesurer le risque systématique.
         </p>
     </div>
 
+    <!-- INTERET -->
     <div class="card">
-        <h2>Intérêt financier du projet</h2>
+        <h2>Intérêt du projet</h2>
         <p>
-            L’intérêt principal du CAPM est de montrer qu’un actif financier ne doit pas être évalué
-            uniquement à partir de son rendement, mais aussi à partir de son risque. Le bêta mesure cette
-            sensibilité au marché, et le modèle permet ensuite de comparer le rendement observé d’une action
-            au rendement théorique qu’elle devrait offrir selon son niveau de risque.
+            Le modèle CAPM permet d’évaluer un actif financier en tenant compte à la fois de son rendement
+            et de son niveau de risque. Il offre ainsi un cadre d’analyse permettant de déterminer si une action
+            est sous-évaluée, correctement valorisée ou surévaluée.
         </p>
-        <div class="tip-box">
-            Cette approche permet de déterminer si une action semble sous-évaluée, correctement valorisée
-            ou potentiellement surévaluée.
-        </div>
+
+        <p>
+            Ce projet illustre concrètement cette relation en combinant analyse de données,
+            modélisation financière et visualisation interactive.
+        </p>
     </div>
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-    CAPM Asset Management Dashboard — Projet de finance quantitative et visualisation de données
+    CAPM Dashboard — Projet de finance quantitative
 </div>
 
 </body>
