@@ -16,19 +16,28 @@
 
 <header>
     <h1>Simulation de portefeuille</h1>
-    <p>Construisez un portefeuille cohérent avec votre profil d’investisseur</p>
+    <p>
+        Testez différentes stratégies d’investissement et observez comment
+        le niveau de risque et la composition du portefeuille influencent
+        les résultats attendus.
+    </p>
 </header>
 
 <div class="container">
 
+    <div class="problem-box">
+        <h2>Objectif de cette page</h2>
+        <p>
+            Cette page constitue la partie interactive du projet. L’utilisateur peut choisir
+            un capital initial, sélectionner une stratégie d’investissement et construire
+            un portefeuille à partir des entreprises étudiées. L’objectif n’est pas de prédire
+            exactement les performances futures, mais de proposer une lecture pédagogique
+            du couple rendement-risque dans le cadre du modèle CAPM.
+        </p>
+    </div>
+
     <div class="card">
         <h2>Configurer votre portefeuille</h2>
-        <p>
-            Cette page constitue la partie interactive du projet. Vous pouvez choisir un capital initial,
-            sélectionner un mode de gestion et composer un portefeuille à partir des entreprises étudiées
-            dans le projet. Le but n’est pas de prédire exactement le futur, mais de proposer une
-            interprétation réaliste du couple rendement-risque en fonction de la stratégie choisie.
-        </p>
 
         <label for="somme">Capital initial investi</label>
         <input type="number" id="somme" value="1200" min="100" step="50">
@@ -51,15 +60,16 @@
             <label><input type="checkbox" class="action" value="Air Products" data-risk="3" data-return="4"> Air Products</label>
             <label><input type="checkbox" class="action" value="Alibaba" data-risk="6" data-return="5"> Alibaba</label>
             <label><input type="checkbox" class="action" value="Meta Platforms" data-risk="9" data-return="9"> Meta Platforms</label>
-            <label><input type="checkbox" class="action" value="Philips" data-risk="3" data-return="3"> Philips</label>
+            <label><input type="checkbox" class="action" value="Pharmagest" data-risk="3" data-return="3"> Pharmagest</label>
         </div>
 
         <button onclick="lancerSimulation()">Lancer la simulation</button>
         <button class="secondary" onclick="resetSimulation()">Réinitialiser</button>
 
         <div class="small-note">
-            Conseil : la gestion passive convient davantage à un investisseur prudent, la gestion active
-            à un investisseur plus offensif, et la gestion mixte à un profil équilibré.
+            Conseil : la gestion passive convient davantage à un investisseur prudent,
+            la gestion active à un investisseur plus offensif, et la gestion mixte à
+            un profil équilibré.
         </div>
     </div>
 
@@ -75,23 +85,24 @@
 
     <div class="card">
         <h2>Résultats estimés</h2>
+
         <div class="grid-3">
             <div class="metric-card">
                 <h3>Fortune finale estimée</h3>
                 <div class="metric-value" id="fortuneFinale">...</div>
-                <div class="metric-subtitle">estimation simplifiée fondée sur les performances du projet</div>
+                <div class="metric-subtitle">lecture simplifiée fondée sur les performances du projet</div>
             </div>
 
             <div class="metric-card">
                 <h3>Probabilité de dépasser +10 %</h3>
                 <div class="metric-value" id="proba10">...</div>
-                <div class="metric-subtitle">indicateur de succès de la stratégie</div>
+                <div class="metric-subtitle">indicateur synthétique de succès</div>
             </div>
 
             <div class="metric-card">
                 <h3>Score de risque</h3>
                 <div class="metric-value" id="scoreRisque">...</div>
-                <div class="metric-subtitle">lecture simplifiée de l’exposition au risque</div>
+                <div class="metric-subtitle">niveau d’exposition du portefeuille</div>
             </div>
         </div>
 
@@ -114,9 +125,12 @@
             <p><strong>Badge :</strong> <span id="badgeContainer">...</span></p>
             <p><strong>Description :</strong> <span id="descriptionAgent">...</span></p>
             <p><strong>Conseil de gestion :</strong> <span id="conseilAgent">...</span></p>
-            <p><strong>Si vous aimez surtout la sécurité :</strong> privilégier le marché global ou des entreprises défensives et peu volatiles.</p>
-            <p><strong>Si vous aimez surtout le risque :</strong> sélectionner des entreprises à fort potentiel de croissance, en acceptant des variations plus fortes.</p>
-            <p><strong>Si vous cherchez un compromis :</strong> répartir l’investissement entre le marché et plusieurs entreprises afin de diversifier le risque.</p>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>Si vous aimez surtout la sécurité :</strong> privilégier le marché global ou des entreprises défensives et moins volatiles.</p>
+            <p><strong>Si vous recherchez davantage de rendement :</strong> sélectionner des entreprises à plus fort potentiel, en acceptant des variations plus importantes.</p>
+            <p><strong>Si vous cherchez un compromis :</strong> répartir l’investissement entre marché et entreprises afin de diversifier le risque.</p>
         </div>
     </div>
 
@@ -127,16 +141,17 @@
                 Lancez une simulation pour obtenir une recommandation adaptée à votre style d’investissement.
             </span>
         </div>
-        <div class="warning-box">
-            Cette simulation reste pédagogique. Elle s’appuie sur des données historiques et sur une logique
-            simplifiée. Les résultats ne garantissent pas les performances futures des marchés financiers.
-        </div>
-    </div>
 
-    <div class="card">
-        <h2>Recommandation intelligente</h2>
-        <p id="recoTexte">Lancez une simulation pour obtenir une recommandation personnalisée.</p>
-        <div class="tip-box" id="recoConseil">Une fois votre simulation lancée, une suggestion d’allocation cohérente avec votre profil sera affichée ici.</div>
+        <div class="result-box" style="margin-top:16px;">
+            <p><strong>Recommandation intelligente :</strong> <span id="recoTexte">Lancez une simulation pour obtenir une recommandation personnalisée.</span></p>
+            <p><strong>Suggestion :</strong> <span id="recoConseil">Une fois votre simulation lancée, une suggestion d’allocation cohérente avec votre profil sera affichée ici.</span></p>
+        </div>
+
+        <div class="warning-box">
+            Cette simulation reste pédagogique. Elle s’appuie sur des données historiques
+            et sur une logique simplifiée. Les résultats ne garantissent pas les performances
+            futures des marchés financiers.
+        </div>
     </div>
 
 </div>
@@ -187,10 +202,10 @@ function lancerSimulation() {
         riskScore = 28;
 
         profilAgent = "Investisseur prudent";
-        descriptionAgent = "Ce profil privilégie la stabilité, la régularité et la réduction de l’exposition au risque. Il recherche une progression plus modérée mais plus prévisible.";
+        descriptionAgent = "Ce profil privilégie la stabilité, la régularité et la limitation du risque. Il recherche une progression plus modérée mais plus prévisible.";
         conseilAgent = "Une gestion passive est adaptée si vous souhaitez suivre le marché global avec une logique de prudence et de discipline.";
-        interpretation = "Votre portefeuille repose sur une logique de stabilité. Le potentiel de gain est plus modéré, mais le niveau de risque reste mieux contrôlé.";
-        recommandationFinale = "Cette configuration convient si votre priorité est la sécurité du capital et la limitation des fluctuations trop importantes.";
+        interpretation = "Votre portefeuille repose sur une logique de stabilité. Le potentiel de gain est plus modéré, mais le niveau de risque reste mieux maîtrisé.";
+        recommandationFinale = "Cette configuration convient si votre priorité est la sécurité du capital et la limitation des fluctuations importantes.";
     }
 
     if (strategie === "active") {
@@ -202,10 +217,10 @@ function lancerSimulation() {
         riskScore = 58;
 
         profilAgent = "Investisseur dynamique";
-        descriptionAgent = "Ce profil accepte davantage de volatilité pour viser une performance plus élevée. Il privilégie les entreprises au potentiel de croissance plus fort.";
-        conseilAgent = "Une gestion active est pertinente si vous acceptez un niveau de risque plus important pour rechercher une meilleure performance.";
+        descriptionAgent = "Ce profil accepte une plus grande volatilité pour viser une performance plus élevée. Il privilégie les entreprises à fort potentiel de croissance.";
+        conseilAgent = "Une gestion active est pertinente si vous acceptez davantage de risque pour rechercher une meilleure performance.";
         interpretation = "Votre portefeuille est orienté vers la performance. Le rendement potentiel est plus élevé, mais l’exposition au risque est également plus forte.";
-        recommandationFinale = "Cette configuration convient si vous êtes prêt à accepter l’incertitude et la volatilité en échange d’un rendement espéré plus ambitieux.";
+        recommandationFinale = "Cette configuration convient si vous êtes prêt à accepter une part d’incertitude plus importante en échange d’un rendement espéré plus ambitieux.";
     }
 
     if (strategie === "mixte") {
@@ -217,10 +232,10 @@ function lancerSimulation() {
         riskScore = 42;
 
         profilAgent = "Investisseur équilibré";
-        descriptionAgent = "Ce profil cherche un compromis cohérent entre prudence et recherche de rendement. Il combine diversification et sélection ciblée.";
+        descriptionAgent = "Ce profil cherche un compromis entre prudence et recherche de rendement. Il combine diversification et sélection ciblée.";
         conseilAgent = "Une gestion mixte est adaptée si vous souhaitez répartir votre risque tout en cherchant à améliorer la performance par rapport au simple suivi du marché.";
         interpretation = "Votre portefeuille recherche un équilibre entre sécurité et croissance. Il réduit une partie du risque tout en conservant un potentiel de rendement intéressant.";
-        recommandationFinale = "Cette configuration convient si vous souhaitez une stratégie diversifiée, plus flexible et mieux adaptée à un compromis rendement-risque.";
+        recommandationFinale = "Cette configuration convient si vous souhaitez une stratégie diversifiée, plus flexible et plus équilibrée.";
     }
 
     if (strategie !== "passive" && nbActions > 0) {
@@ -284,24 +299,25 @@ function lancerSimulation() {
         badgeHTML = '<span class="profile-badge badge-dynamique">Dynamique</span>';
     }
     document.getElementById("badgeContainer").innerHTML = badgeHTML;
-    document.getElementById("riskBar").style.width = riskScore + "%";
 
     let recoTexte = "";
     let recoConseil = "";
 
     if (riskScore <= 35) {
         recoTexte = "Votre profil est prudent. Il est recommandé de privilégier des entreprises stables et moins volatiles, ainsi qu’une exposition au marché global.";
-        recoConseil = "Vous pouvez privilégier des entreprises comme Airbus, LVMH ou TotalEnergies, ou utiliser une stratégie passive basée sur l’indice SPY. Une diversification large est fortement recommandée.";
+        recoConseil = "Vous pouvez privilégier des entreprises comme Airbus, LVMH, TotalEnergies ou Pharmagest, ou utiliser une stratégie passive basée sur le marché. Une diversification large reste recommandée.";
     } else if (riskScore <= 60) {
         recoTexte = "Votre profil est équilibré. Vous pouvez combiner des entreprises stables et des entreprises à plus fort potentiel afin d’optimiser le couple rendement-risque.";
-        recoConseil = "Une combinaison entre Microsoft, Airbus et une part de marché est cohérente. Vous pouvez également ajouter une entreprise plus dynamique pour améliorer le rendement.";
+        recoConseil = "Une combinaison entre Microsoft, Airbus, LVMH et une part de marché constitue une stratégie cohérente. Vous pouvez aussi ajouter une valeur plus dynamique pour améliorer le rendement.";
     } else {
         recoTexte = "Votre profil est dynamique. Vous pouvez viser une performance plus élevée en sélectionnant des entreprises à fort potentiel, tout en acceptant un niveau de risque plus important.";
-        recoConseil = "Des entreprises comme Apple, Tesla ou Meta Platforms peuvent être intéressantes dans cette logique. Attention cependant à ne pas trop concentrer votre portefeuille.";
+        recoConseil = "Des entreprises comme Apple, Tesla ou Meta Platforms peuvent être intéressantes dans cette logique. Attention cependant à ne pas trop concentrer le portefeuille.";
     }
 
     document.getElementById("recoTexte").textContent = recoTexte;
     document.getElementById("recoConseil").textContent = recoConseil;
+
+    document.getElementById("riskBar").style.width = riskScore + "%";
 }
 
 function resetSimulation() {
@@ -325,9 +341,9 @@ function resetSimulation() {
     document.getElementById("conseilAgent").textContent = "...";
     document.getElementById("badgeContainer").textContent = "...";
     document.getElementById("recommandationFinale").textContent = "Lancez une simulation pour obtenir une recommandation adaptée à votre style d’investissement.";
-    document.getElementById("riskBar").style.width = "0%";
     document.getElementById("recoTexte").textContent = "Lancez une simulation pour obtenir une recommandation personnalisée.";
     document.getElementById("recoConseil").textContent = "Une fois votre simulation lancée, une suggestion d’allocation cohérente avec votre profil sera affichée ici.";
+    document.getElementById("riskBar").style.width = "0%";
 }
 </script>
 
